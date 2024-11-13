@@ -4,7 +4,7 @@ import { useState } from 'react';
 import '../styles/CheatSheet.css';
 import { apiPost } from './api';
 
-function CheatSheet({onAdd}) {
+function CheatSheet({ onAdd }) {
 	const [titleValue, setTitleValue] = useState('');
 	const [contentValue, setContentValue] = useState('');
 	const [title, setTitle] = useState('здесь будет заголовок');
@@ -28,8 +28,15 @@ function CheatSheet({onAdd}) {
 	};
 
 	return (
-		<div className='container mx-auto flex flex-col space-y-3 max-w-screen-sm '>
-			<h1>JS CHEAT SHEETS</h1>
+		<div
+			className='
+		container mx-auto
+		flex flex-col
+		space-y-3
+		max-w-screen-sm
+		'
+		>
+			<div>JS CHEAT SHEETS</div>
 			<input
 				className='border border-gray-400 rounded p-2'
 				type='text'
