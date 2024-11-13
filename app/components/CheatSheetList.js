@@ -23,7 +23,7 @@ export default function CheatSheetList({ updateCount }) {
 				return (
 					<div key={index}>
 						<div>{sheetTitle}</div>
-						<div>{sheetContent}</div>
+						<div dangerouslySetInnerHTML={{ __html: sheetContent }} />
 					</div>
 				);
 			})}

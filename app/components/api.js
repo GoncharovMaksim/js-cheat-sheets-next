@@ -8,13 +8,22 @@ export async function apiGet() {
 	return sheets;
 }
 
-export async function apiPost(sheetTitle, sheetContent) {
-	const response = await fetch(url, {
-		method: 'POST',
-		headers: {
-			'Content-Type': 'application/json; charset=utf-8',
-		},
-		body: JSON.stringify({ sheetTitle, sheetContent }),
-	});
-	return response;
+export async function apiPost(sheetTitle, sheetContent, onAdd) {
+	try {
+		const response = await fetch(url, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json; charset=utf-8',
+			},
+			body: JSON.stringify({ sheetTitle, sheetContent }),
+		});
+		if (response.ok) {
+			onAdd();
+			console.log('он адд запущен');
+			
+		}
+		return response;
+	} catch (err) {
+		return console.log(err);
+	}
 }

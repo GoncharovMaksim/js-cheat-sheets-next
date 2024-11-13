@@ -1,6 +1,6 @@
 'use client';
 import './styles/App.css';
-import CheatSheet from './components/CheatSheet';
+
 import CheatSheetList from './components/CheatSheetList';
 import { useState } from 'react';
 export default function Home() {
@@ -12,7 +12,7 @@ export default function Home() {
 	};
 	return (
 		<div className='App'>
-			<CheatSheet onAdd={handleUpdate} />
+			
 			<CheatSheetList updateCount={updateCount} />
 		</div>
 	);

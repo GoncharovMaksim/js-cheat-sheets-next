@@ -23,13 +23,13 @@ function CheatSheet({ onAdd }) {
 			.replace(/\n/g, '<br />');
 		setTitle(titleValue);
 		setContent(escapedContent);
-		apiPost(titleValue, escapedContent);
-		onAdd();
+		apiPost(titleValue, escapedContent, onAdd);
+		
 	};
 
 	return (
 		<div
-			className='
+		className='
 		container mx-auto
 		flex flex-col
 		space-y-3
