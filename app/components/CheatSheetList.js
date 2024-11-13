@@ -15,7 +15,7 @@ export default function CheatSheetList({ updateCount }) {
 	}, [updateCount]);
 
 	return (
-		<div>
+		<div className='container mx-auto flex flex-col space-y-3 max-w-screen-sm '>
 			{sheetsList.map((el, index) => {
 				let sheetTitle = el.sheetTitle;
 				let sheetContent = el.sheetContent;

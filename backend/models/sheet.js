@@ -6,6 +6,7 @@ const sheetSchema = new mongoose.Schema({
 	sheetContent: { type: String, required: true },
 });
 
-const Sheet = mongoose.model('Sheet', sheetSchema);
 
+
+const Sheet = mongoose.models.Sheet || mongoose.model('Sheet', sheetSchema);
 module.exports = Sheet;

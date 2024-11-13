@@ -12,7 +12,7 @@ export default function Home() {
 	};
 	return (
 		<div className='App'>
-			<h1>JS CHEAT SHEETS</h1>
+			
 			<CheatSheet onAdd={handleUpdate} />
 			<CheatSheetList updateCount={updateCount} />
 		</div>

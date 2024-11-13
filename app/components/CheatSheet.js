@@ -28,10 +28,25 @@ function CheatSheet({onAdd}) {
 	};
 
 	return (
-		<div>
-			<input type='text' onChange={handleTitleChange} />
-			<textarea onChange={handleContentChange} rows='5' cols='30' />
-			<button onClick={addContent}>AD</button>
+		<div className='container mx-auto flex flex-col space-y-3 max-w-screen-sm '>
+			<h1>JS CHEAT SHEETS</h1>
+			<input
+				className='border border-gray-400 rounded p-2'
+				type='text'
+				onChange={handleTitleChange}
+			/>
+			<textarea
+				className='border border-gray-400 rounded p-2'
+				onChange={handleContentChange}
+				rows='5'
+				cols='30'
+			/>
+			<button
+				className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
+				onClick={addContent}
+			>
+				AD
+			</button>
 			<div>{title}</div>
 			<div dangerouslySetInnerHTML={{ __html: content }} />
 		</div>
