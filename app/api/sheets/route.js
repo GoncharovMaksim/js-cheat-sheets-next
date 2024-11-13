@@ -12,6 +12,8 @@ export async function GET() {
 		const sheets = await Sheet.find(); // Получаем данные из MongoDB
 		return NextResponse.json(sheets); // Возвращаем данные
 	} catch (error) {
+		console.log(error);
+		
 		return NextResponse.json(
 			{ error: 'Не удалось получить данные' },
 			{ status: 500 }

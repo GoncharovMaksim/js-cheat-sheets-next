@@ -19,7 +19,7 @@ export async function apiPost(sheetTitle, sheetContent, onAdd) {
 		});
 		if (response.ok) {
 			onAdd();
-			console.log('он адд запущен');
+	
 			
 		}
 		return response;
