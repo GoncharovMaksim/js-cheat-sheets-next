@@ -29,8 +29,8 @@ function CheatSheet({ onAdd }) {
 
 	return (
 		<div
-		className='
-		container mx-auto
+			className='
+		container mx-auto px-4
 		flex flex-col
 		space-y-3
 		max-w-screen-sm
