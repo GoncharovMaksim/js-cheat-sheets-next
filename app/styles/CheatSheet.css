@@ -1,0 +1,9 @@
+/* styles.css */
+pre {
+    white-space: pre-wrap; /* Позволяет переносить строки */
+    word-wrap: break-word; /* Переносит длинные слова */
+    background-color: #f5f5f5; /* Фон для улучшения читаемости */
+    padding: 10px; /* Отступы внутри блока */
+    border-radius: 5px; /* Скругление углов */
+    overflow: auto; /* Добавляет прокрутку, если контент слишком длинный */
+}
