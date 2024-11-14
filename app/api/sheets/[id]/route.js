@@ -1,10 +1,8 @@
-import { NextResponse } from 'next/server';
 import connectDB from '../../../../backend/config/db';
 import Sheet from '../../../../backend/models/sheet'; // Импорт модели MongoDB
 
 // Подключение к базе данных MongoDB
 connectDB();
-
 
 export async function DELETE(request) {
 	try {

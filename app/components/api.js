@@ -30,7 +30,7 @@ export async function apiPost(sheetTitle, sheetContent, onAdd) {
 
 
 
-export async function apiDelete(sheetId) {
+export async function apiDelete(sheetId, onAdd) {
 	const urlWithId = `${url}/${sheetId}`; // добавляем sheetId в URL
 
 	try {
@@ -42,7 +42,7 @@ export async function apiDelete(sheetId) {
 		});
 
 		if (response.ok) {
-			console.log(response);
+			onAdd();
 			
 		} else {
 			console.error(`Ошибка при удалении: ${response.statusText}`);

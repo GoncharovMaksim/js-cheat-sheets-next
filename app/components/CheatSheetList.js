@@ -4,7 +4,7 @@ import React from 'react';
 import { apiGet, apiDelete } from './api';
 import { useState, useEffect } from 'react';
 
-export default function CheatSheetList({ updateCount }) {
+export default function CheatSheetList({ updateCount, onAdd }) {
 	const [sheetsList, setSheetsList] = useState([]);
 	console.log('updateCount:', updateCount);
 	useEffect(() => {
@@ -16,8 +16,7 @@ export default function CheatSheetList({ updateCount }) {
 	}, [updateCount]);
 
 	const sheetDelete = sheetId => {
-		let newSheetId = `id=${sheetId}`;
-		apiDelete(sheetId);
+				apiDelete(sheetId, onAdd);
 	};
 
 	return (
@@ -32,7 +31,12 @@ export default function CheatSheetList({ updateCount }) {
 						<div>{sheetId}</div>
 						<div>{sheetTitle}</div>
 						<div dangerouslySetInnerHTML={{ __html: sheetContent }} />
-						<button onClick={() => sheetDelete(sheetId)}>DELETE</button>
+						<button
+							className='bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded'
+							onClick={() => sheetDelete(sheetId)}
+						>
+							DELETE
+						</button>
 					</div>
 				);
 			})}
