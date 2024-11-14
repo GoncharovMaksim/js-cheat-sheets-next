@@ -5,6 +5,8 @@ import '../styles/CheatSheet.css';
 import { apiPost } from './api';
 
 function CheatSheet({ onAdd }) {
+
+
 	const [titleValue, setTitleValue] = useState('');
 	const [contentValue, setContentValue] = useState('');
 	const [title, setTitle] = useState('здесь будет заголовок');
@@ -16,15 +18,24 @@ function CheatSheet({ onAdd }) {
 	const handleContentChange = event => {
 		setContentValue(event.target.value);
 	};
+	const resetValue = () => {
+		setTitleValue('');
+		setContentValue('');
+	};
+
 	const addContent = () => {
-		const escapedContent = contentValue
-			.replace(/</g, '&lt;')
-			.replace(/>/g, '&gt;')
-			.replace(/\n/g, '<br />');
-		setTitle(titleValue);
-		setContent(escapedContent);
-		apiPost(titleValue, escapedContent, onAdd);
-		
+		if (titleValue && contentValue) {
+			const escapedContent = contentValue
+				.replace(/</g, '&lt;')
+				.replace(/>/g, '&gt;')
+				.replace(/\n/g, '<br />');
+			setTitle(titleValue);
+			setContent(escapedContent);
+			apiPost(titleValue, escapedContent, onAdd);
+			resetValue();
+		} else {
+			alert('Пустые поля');
+		}
 	};
 
 	return (
@@ -39,11 +50,13 @@ function CheatSheet({ onAdd }) {
 			<div>JS CHEAT SHEETS</div>
 			<input
 				className='border border-gray-400 rounded p-2'
+				value={titleValue}
 				type='text'
 				onChange={handleTitleChange}
 			/>
 			<textarea
 				className='border border-gray-400 rounded p-2'
+				value={contentValue}
 				onChange={handleContentChange}
 				rows='5'
 				cols='30'
