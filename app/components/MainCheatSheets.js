@@ -1,7 +1,6 @@
 'use client';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { apiGet } from './api';
-import { useState, useEffect } from 'react';
 
 export default function MainCheatSheets() {
 	const [sheetsList, setSheetsList] = useState([]);
@@ -15,15 +14,15 @@ export default function MainCheatSheets() {
 	}, []);
 
 	return (
-		<div className='container mx-auto px-4 flex flex-col space-y-3 max-w-screen-sm '>
+		<div className="container mx-auto px-4 flex flex-col space-y-6 max-w-screen-sm">
 			{sheetsList.map((el, index) => {
 				let sheetTitle = el.sheetTitle;
 				let sheetContent = el.sheetContent;
-				console.log(el.sheetContent);
+
 				return (
-					<div key={index}>
-						<div>{sheetTitle}</div>
-						<div dangerouslySetInnerHTML={{ __html: sheetContent }} />
+					<div key={index} className="p-6 bg-white rounded-lg shadow-md border border-gray-200">
+						<h2 className="text-xl font-semibold text-gray-900 mb-2">{sheetTitle}</h2>
+						<div className="text-gray-700 text-base leading-relaxed" dangerouslySetInnerHTML={{ __html: sheetContent }} />
 					</div>
 				);
 			})}
