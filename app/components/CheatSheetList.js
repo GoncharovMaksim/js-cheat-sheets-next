@@ -1,6 +1,7 @@
 'use client';
+
 import React from 'react';
-import { apiGet } from './api';
+import { apiGet, apiDelete } from './api';
 import { useState, useEffect } from 'react';
 
 export default function CheatSheetList({ updateCount }) {
@@ -14,6 +15,11 @@ export default function CheatSheetList({ updateCount }) {
 		fetchData();
 	}, [updateCount]);
 
+	const sheetDelete = sheetId => {
+		let newSheetId = `id=${sheetId}`;
+		apiDelete(sheetId);
+	};
+
 	return (
 		<div className='container mx-auto px-4 flex flex-col space-y-3 max-w-screen-sm '>
 			{sheetsList.map((el, index) => {
@@ -26,6 +32,7 @@ export default function CheatSheetList({ updateCount }) {
 						<div>{sheetId}</div>
 						<div>{sheetTitle}</div>
 						<div dangerouslySetInnerHTML={{ __html: sheetContent }} />
+						<button onClick={() => sheetDelete(sheetId)}>DELETE</button>
 					</div>
 				);
 			})}
