@@ -38,3 +38,34 @@ export async function POST(request) {
 		return NextResponse.json({ error: error.message }, { status: 500 });
 	}
 }
+
+export async function DELETE(request) {
+	try {
+		// Извлекаем id из URL
+		const { searchParams } = new URL(request.url);
+		const id = searchParams.get('id'); // предполагается, что id передается в параметре
+
+		if (!id) {
+			return new Response(JSON.stringify({ message: 'ID не передан' }), {
+				status: 400,
+			});
+		}
+
+		const result = await SheetModel.deleteOne({ _id: id }); // Удаляем запись по _id
+
+		if (result.deletedCount > 0) {
+			return new Response(
+				JSON.stringify({ message: 'Элемент удалён успешно' }),
+				{ status: 200 }
+			);
+		} else {
+			return new Response(JSON.stringify({ message: 'Элемент не найден' }), {
+				status: 404,
+			});
+		}
+	} catch (error) {
+		return new Response(JSON.stringify({ message: 'Ошибка сервера', error }), {
+			status: 500,
+		});
+	}
+}

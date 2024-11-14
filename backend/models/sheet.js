@@ -1,5 +1,5 @@
 //sheet.js
-const mongoose = require('mongoose');
+ import mongoose from 'mongoose';
 
 const sheetSchema = new mongoose.Schema({
 	sheetTitle: { type: String, required: true },

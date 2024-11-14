@@ -19,9 +19,11 @@ export default function CheatSheetList({ updateCount }) {
 			{sheetsList.map((el, index) => {
 				let sheetTitle = el.sheetTitle;
 				let sheetContent = el.sheetContent;
-				console.log(el.sheetContent);
+				let sheetId = el._id;
+				console.log(el);
 				return (
 					<div key={index}>
+						<div>{sheetId}</div>
 						<div>{sheetTitle}</div>
 						<div dangerouslySetInnerHTML={{ __html: sheetContent }} />
 					</div>
