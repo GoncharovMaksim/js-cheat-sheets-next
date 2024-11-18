@@ -20,9 +20,17 @@ export default function MainCheatSheets() {
 				let sheetContent = el.sheetContent;
 
 				return (
-					<div key={index} className="p-6 bg-white rounded-lg shadow-md border border-gray-200">
-						<h2 className="text-xl font-semibold text-gray-900 mb-2">{sheetTitle}</h2>
-						<div className="text-gray-700 text-base leading-relaxed" dangerouslySetInnerHTML={{ __html: sheetContent }} />
+					<div
+						key={index}
+						className='p-6 bg-gray-100 rounded-lg shadow-md border border-gray-200'
+					>
+						<h2 className='text-xl font-semibold text-gray-900 mb-2'>
+							{sheetTitle}
+						</h2>
+						<div
+							className='text-gray-700 text-base leading-relaxed'
+							dangerouslySetInnerHTML={{ __html: sheetContent }}
+						/>
 					</div>
 				);
 			})}

@@ -14,6 +14,7 @@ export default function Home() {
 		<div className='App'>
 			<CheatSheet onAdd={handleUpdate} />
 			<CheatSheetList onAdd={handleUpdate}  updateCount={updateCount} />
+			
 		</div>
 	);
 }
