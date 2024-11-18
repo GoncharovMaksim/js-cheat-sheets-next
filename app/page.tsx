@@ -1,12 +1,12 @@
 import './styles/App.css';
 
-import MainCheatSheets from './components/MainCheatSheets';
+import AccordionCheatSheets from './components/AccordionCheatSheets';
 export default function Home() {
 
 
 	return (
 		<div className='App'>
-			<MainCheatSheets />
+			<AccordionCheatSheets />
 		</div>
 	);
 }
