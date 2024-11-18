@@ -21,8 +21,8 @@ export default function AccordionCheatSheets() {
 
 				return (
 					<div key={index}>
-						<div className='collapse bg-base-200'>
-							<input type='radio' name='my-accordion-1' />
+						<div className='collapse collapse-arrow bg-base-200'>
+							<input type='checkbox' name='my-accordion-2' />
 							<div className='collapse-title text-xl font-medium'>
 								{sheetTitle}
 							</div>
